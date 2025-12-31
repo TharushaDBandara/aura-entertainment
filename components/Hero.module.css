@@ -1,0 +1,353 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-hero);
+    padding-top: 80px;
+    /* Account for fixed navbar */
+    padding-bottom: 4rem;
+    /* Space for scroll indicator */
+}
+
+.bgOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(124, 58, 237, 0.15) 0%, rgba(3, 0, 5, 0.8) 80%);
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+.particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(212, 175, 55, 0.6);
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.presenter {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: rgba(212, 175, 55, 0.9);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.title {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.titleMain {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 12vw, 8.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 30%, #ffffff 50%, #f4d03f 70%, #d4af37 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.titleSinhala {
+    display: block;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+    letter-spacing: 0.2em;
+}
+
+.tagline {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.eventInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.infoIcon {
+    font-size: 1.1rem;
+}
+
+.infoDivider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Countdown Timer */
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.countdownItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(145deg, rgba(26, 15, 46, 0.8) 0%, rgba(10, 6, 18, 0.9) 100%);
+    border-radius: 1rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.countdownNumber {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.countdownLabel {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.25rem;
+}
+
+.countdownSeparator {
+    font-size: 2rem;
+    color: rgba(212, 175, 55, 0.5);
+    font-weight: 300;
+}
+
+/* CTA Buttons */
+.cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    /* Add specific margin to push scroll indicator down if relative */
+    z-index: 10;
+}
+
+.ctaPrimary {
+    padding: 1.1rem 2.8rem;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaPrimary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.ctaPrimary:hover::before {
+    left: 100%;
+}
+
+.ctaPrimary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.6);
+}
+
+.ctaSecondary {
+    padding: 1.1rem 2.8rem;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 50px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: #d4af37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+    position: absolute;
+    bottom: 3rem;
+    /* Increased from 2rem */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    z-index: 5;
+    pointer-events: none;
+    /* Let clicks pass through if needed */
+}
+
+.scrollMouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scrollWheel {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: rgba(212, 175, 55, 0.8);
+    border-radius: 2px;
+    animation: scroll 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .eventInfo {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.25rem 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .infoDivider {
+        display: none;
+    }
+
+    .countdown {
+        gap: 0.5rem;
+    }
+
+    .countdownItem {
+        min-width: 60px;
+        padding: 0.75rem 1rem;
+    }
+
+    .countdownSeparator {
+        font-size: 1.5rem;
+    }
+
+    .scrollIndicator {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdownItem {
+        min-width: 50px;
+        padding: 0.5rem 0.75rem;
+    }
+}

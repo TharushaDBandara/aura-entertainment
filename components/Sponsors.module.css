@@ -1,0 +1,309 @@
+.sponsors {
+    padding: 8rem 0;
+    background: linear-gradient(180deg, #0a0612 0%, #1a0f2e 50%, #0a0612 100%);
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(212, 175, 55, 0.9);
+}
+
+.labelLine {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5));
+}
+
+.labelLine:last-child {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.5), transparent);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.goldText {
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mainPackages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.packageCard {
+    position: relative;
+    background: linear-gradient(145deg, rgba(26, 15, 46, 0.5) 0%, rgba(10, 6, 18, 0.8) 100%);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.packageCard:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.packageCard.gold {
+    border-color: rgba(212, 175, 55, 0.4);
+    background: linear-gradient(145deg, rgba(45, 35, 20, 0.6) 0%, rgba(26, 15, 46, 0.8) 100%);
+}
+
+.packageCard.gold:hover {
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+}
+
+.packageCard.silver {
+    border-color: rgba(192, 192, 192, 0.3);
+}
+
+.packageCard.silver:hover {
+    border-color: rgba(192, 192, 192, 0.5);
+}
+
+.packageCard.bronze {
+    border-color: rgba(205, 127, 50, 0.3);
+}
+
+.packageCard.bronze:hover {
+    border-color: rgba(205, 127, 50, 0.5);
+}
+
+.packageHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.packageTier {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.gold .packageTier {
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.silver .packageTier {
+    background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bronze .packageTier {
+    background: linear-gradient(135deg, #cd7f32 0%, #e9a862 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.packagePrice {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.currency {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.amount {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.lkr {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 0.25rem;
+}
+
+.benefits {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+.benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.checkIcon {
+    color: #d4af37;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.contactBtn {
+    display: block;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 50px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contactBtn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #d4af37;
+}
+
+.gold .contactBtn {
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    color: #000;
+    border: none;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.gold .contactBtn:hover {
+    box-shadow: 0 5px 30px rgba(212, 175, 55, 0.5);
+}
+
+/* Other Packages */
+.otherPackages {
+    margin-bottom: 3rem;
+}
+
+.otherTitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.otherGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.otherCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: rgba(26, 15, 46, 0.4);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.otherCard:hover {
+    border-color: rgba(212, 175, 55, 0.2);
+    background: rgba(26, 15, 46, 0.6);
+}
+
+.otherName {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.otherPrice {
+    color: #d4af37;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.customNote {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    font-size: 0.95rem;
+    padding: 1.5rem 2rem;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .mainPackages {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .otherGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sponsors {
+        padding: 5rem 0;
+    }
+
+    .otherGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .otherCard {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
