@@ -26,7 +26,7 @@ export default function Contact() {
 
     return (
         <section id="contact" className={styles.contact} ref={ref}>
-            <div className={styles.container}>
+            <div className={styles.container} suppressHydrationWarning>
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 30 }}

@@ -1,19 +1,30 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
-    const sinhalaTitle = '\u0DC0\u0DD2\u0DBB\u0DCF\u0D9C\u0DBA';
+    const [currentYear, setCurrentYear] = useState(null);
+    const sinhalaTitle = '\u0DB8\u0DD3\u0D9C \u0DC0\u0DBB\u0DCA\u0DC2\u0DCF';
+
+    useEffect(() => {
+        setCurrentYear(new Date().getFullYear());
+    }, []);
 
     return (
         <footer className={styles.footer}>
-            <div className={styles.container}>
+            <div className={styles.container} suppressHydrationWarning>
                 <div className={styles.content}>
                     <div className={styles.brand}>
                         <div className={styles.logo}>
-                            <span className={styles.logoText}>AURA</span>
-                            <span className={styles.logoSub}>Entertainment</span>
+                            <Image
+                                src="/aura-logo.png"
+                                alt="AURA Entertainment"
+                                width={150}
+                                height={50}
+                                style={{ objectFit: 'contain' }}
+                            />
                         </div>
                         <p className={styles.tagline}>
                             Turning standard gatherings into legendary spectacles
@@ -32,15 +43,15 @@ export default function Footer() {
                             <h4>Event</h4>
                             <a href="/sponsors">Sponsors</a>
                             <a href="#contact">Contact</a>
-                            <span>March 7th, 2026</span>
-                            <span>Musaeus Auditorium</span>
+                            <span>March 20th, 2026</span>
+                            <span>Sri Palee College Auditorium</span>
                         </div>
                     </div>
 
                     <div className={styles.social}>
                         <h4>Follow Us</h4>
                         <div className={styles.socialIcons}>
-                            <a href="#" className={styles.socialIcon} aria-label="Facebook">
+                            <a href="https://web.facebook.com/profile.php?id=61586934480079" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Facebook">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                                 </svg>
@@ -67,9 +78,9 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.bottom}>
-                    <p>&copy; {currentYear} AURA Entertainment. All rights reserved.</p>
+                    <p>&copy; {currentYear ?? ''} AURA Entertainment. All rights reserved.</p>
                     <p className={styles.event}>
-                        <span className={styles.eventName}>Viragaya ({sinhalaTitle})</span> - An Evening of Musical Excellence
+                        <span className={styles.eventName}>මේඝ වර්ෂා ({sinhalaTitle})</span> - Live in Concert
                     </p>
                 </div>
             </div>

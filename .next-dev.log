@@ -1,0 +1,17 @@
+
+> viragaya-website@0.1.0 dev
+> next dev --port 3000
+
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.43.137:3000
+
+✓ Starting...
+✓ Ready in 5.6s
+○ Compiling / ...
+ GET / 200 in 6.9s (compile: 6.3s, render: 582ms)
+ GET / 200 in 396ms (compile: 24ms, render: 372ms)
+ GET / 200 in 180ms (compile: 9ms, render: 171ms)
+ GET / 200 in 653ms (compile: 15ms, render: 639ms)
+ GET / 200 in 4.3s (compile: 44ms, render: 4.3s)
+○ Compiling /sponsors ...

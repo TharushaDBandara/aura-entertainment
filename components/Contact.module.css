@@ -1,6 +1,6 @@
 .contact {
     padding: 8rem 0;
-    background: linear-gradient(180deg, #0a0612 0%, #120a1e 100%);
+    background: transparent;
     position: relative;
 }
 
@@ -24,28 +24,28 @@
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: rgba(212, 175, 55, 0.9);
+    color: rgba(var(--color-gold-rgb), 0.9);
 }
 
 .labelLine {
     width: 50px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5));
+    background: linear-gradient(90deg, transparent, rgba(var(--color-gold-rgb), 0.5));
 }
 
 .labelLine:last-child {
-    background: linear-gradient(90deg, rgba(212, 175, 55, 0.5), transparent);
+    background: linear-gradient(90deg, rgba(var(--color-gold-rgb), 0.5), transparent);
 }
 
 .title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 1rem;
-    color: #fff;
+    color: var(--color-text-primary);
 }
 
 .goldText {
-    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -53,7 +53,7 @@
 
 .subtitle {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-muted);
 }
 
 .content {
@@ -69,7 +69,7 @@
 }
 
 .infoCard {
-    background: linear-gradient(145deg, rgba(26, 15, 46, 0.5) 0%, rgba(10, 6, 18, 0.8) 100%);
+    background: var(--gradient-card), var(--color-bg-card);
     border-radius: 1.5rem;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -78,7 +78,7 @@
 .infoCard h3 {
     font-family: var(--font-display);
     font-size: 1.25rem;
-    color: #fff;
+    color: var(--color-text-primary);
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -100,11 +100,11 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    background: var(--gradient-gold);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000;
+    color: var(--color-text-on-accent);
     font-weight: 600;
     font-size: 0.9rem;
 }
@@ -115,7 +115,7 @@
 }
 
 .coordinatorName {
-    color: #fff;
+    color: var(--color-text-primary);
     font-weight: 500;
 }
 
@@ -142,8 +142,8 @@
 }
 
 .contactMethod:hover {
-    background: rgba(212, 175, 55, 0.1);
-    color: #d4af37;
+    background: rgba(var(--color-gold-rgb), 0.08);
+    color: var(--color-gold);
 }
 
 .methodIcon {
@@ -152,7 +152,7 @@
 
 /* Form Section */
 .formSection {
-    background: linear-gradient(145deg, rgba(26, 15, 46, 0.5) 0%, rgba(10, 6, 18, 0.8) 100%);
+    background: var(--gradient-card), var(--color-bg-card);
     border-radius: 1.5rem;
     padding: 2.5rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -161,7 +161,7 @@
 .form h3 {
     font-family: var(--font-display);
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--color-text-primary);
     margin-bottom: 2rem;
 }
 
@@ -187,10 +187,10 @@
 .formGroup textarea {
     width: 100%;
     padding: 1rem 1.25rem;
-    background: rgba(10, 6, 18, 0.6);
+    background: rgba(var(--color-bg-primary-rgb), 0.55);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.75rem;
-    color: #fff;
+    color: var(--color-text-primary);
     font-family: var(--font-body);
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -205,21 +205,19 @@
 .formGroup select:focus,
 .formGroup textarea:focus {
     outline: none;
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    border-color: rgba(var(--color-gold-rgb), 0.5);
+    box-shadow: 0 0 20px rgba(var(--color-gold-rgb), 0.12);
 }
 
 .formGroup select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4af37' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
+    background-image: none;
 }
 
 .formGroup select option {
-    background: #1a0f2e;
-    color: #fff;
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
 }
 
 .formGroup textarea {
@@ -230,8 +228,8 @@
 .submitBtn {
     width: 100%;
     padding: 1.25rem 2rem;
-    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
-    color: #000;
+    background: var(--gradient-gold);
+    color: var(--color-text-on-accent);
     font-weight: 600;
     font-size: 1rem;
     text-transform: uppercase;
@@ -240,11 +238,11 @@
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 20px rgba(var(--color-gold-rgb), 0.22);
 }
 
 .submitBtn:hover {
-    box-shadow: 0 5px 30px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 5px 30px rgba(var(--color-gold-rgb), 0.35);
     transform: translateY(-2px);
 }
 

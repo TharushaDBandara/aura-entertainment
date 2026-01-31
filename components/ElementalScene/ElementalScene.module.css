@@ -1,0 +1,34 @@
+/* Elemental Scene Styles */
+
+/* Canvas Wrapper - Fixed Background */
+.canvasWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Content Overlay - Scrollable Content on Top */
+.contentOverlay {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+}
+
+/* Ensure all content is clickable */
+.contentOverlay nav,
+.contentOverlay main,
+.contentOverlay section,
+.contentOverlay footer,
+.contentOverlay a,
+.contentOverlay button {
+    pointer-events: auto;
+}

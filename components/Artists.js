@@ -9,24 +9,38 @@ import styles from './Artists.module.css';
 const artists = [
     {
         id: 1,
-        name: 'Amarasiri Peiris',
-        title: 'The Living Legend',
-        description: 'A legendary figure in Sri Lankan music, known for his soulful voice and timeless melodies that have touched generations.',
-        image: '/artists/amarasiri.jpg',
+        name: 'IMAN',
+        title: 'The Rising Star',
+        description: 'A dynamic performer bringing fresh energy and captivating vocals to the Sri Lankan music scene.',
+        image: '/artists/iman.jpg',
     },
     {
         id: 2,
-        name: 'Amal Perera',
-        title: 'The Voice of a Generation',
-        description: 'One of the most versatile artists in the industry, blending traditional sounds with contemporary beats.',
-        image: '/artists/amal.jpg',
+        name: 'UVINDU',
+        title: 'The Melodic Voice',
+        description: 'Known for his soulful interpretations and ability to connect with audiences through powerful performances.',
+        image: '/artists/uvindu.jpg',
     },
     {
         id: 3,
-        name: 'Kasun Kalhara',
-        title: 'The Musical Innovator',
-        description: 'A modern maestro who brings fresh perspectives while honoring Sri Lankan musical traditions.',
-        image: '/artists/kasun.jpg',
+        name: 'MIHIRAN',
+        title: 'The Showstopper',
+        description: 'A charismatic artist who commands the stage with incredible presence and unforgettable musical moments.',
+        image: null, // No individual image yet
+    },
+    {
+        id: 4,
+        name: 'DHYAN',
+        title: 'The Versatile Performer',
+        description: 'Blending contemporary sounds with traditional influences to create a unique musical experience.',
+        image: '/artists/dhyan.jpg',
+    },
+    {
+        id: 5,
+        name: 'DILU',
+        title: 'The Crowd Favorite',
+        description: 'An energetic artist whose performances create an electric atmosphere that resonates with every audience.',
+        image: null, // No individual image yet
     },
 ];
 
@@ -39,7 +53,7 @@ export default function Artists() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.15,
             },
         },
     };
@@ -55,7 +69,7 @@ export default function Artists() {
 
     return (
         <section id="artists" className={styles.artists} ref={ref}>
-            <div className={styles.container}>
+            <div className={styles.container} suppressHydrationWarning>
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 30 }}
@@ -68,44 +82,37 @@ export default function Artists() {
                         <span className={styles.labelLine}></span>
                     </div>
                     <h2 className={styles.title}>
-                        Three Icons, <span className={styles.goldText}>One Stage</span>
+                        Five Stars, <span className={styles.goldText}>One Stage</span>
                     </h2>
                     <p className={styles.subtitle}>
-                        Experience an unforgettable evening with Sri Lanka's most beloved musical legends
+                        Experience an electrifying evening with Sri Lanka&apos;s most talented young artists
                     </p>
                 </motion.div>
 
+                {/* Reveal Soon Teaser */}
                 <motion.div
-                    className={styles.artistsGrid}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
+                    className={styles.revealSoonContainer}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    {artists.map((artist) => (
-                        <motion.div
-                            key={artist.id}
-                            className={styles.artistCard}
-                            variants={cardVariants}
-                            whileHover={{ y: -10 }}
-                        >
-                            <div className={styles.imageContainer}>
-                                <Image
-                                    src={artist.image}
-                                    alt={artist.name}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
-                                    style={{ objectFit: 'cover' }}
-                                />
-                                <div className={styles.imageOverlay}></div>
-                            </div>
-                            <div className={styles.cardContent}>
-                                <span className={styles.artistTitle}>{artist.title}</span>
-                                <h3 className={styles.artistName}>{artist.name}</h3>
-                                <p className={styles.artistBio}>{artist.description}</p>
-                            </div>
-                            <div className={styles.cardGlow}></div>
-                        </motion.div>
-                    ))}
+                    <div className={styles.revealSoonContent}>
+                        <div className={styles.mysteryIcon}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <circle cx="12" cy="8" r="5" />
+                                <path d="M20 21a8 8 0 0 0-16 0" />
+                                <circle cx="12" cy="8" r="2" opacity="0.5" />
+                            </svg>
+                            <div className={styles.mysteryGlow}></div>
+                        </div>
+                        <span className={styles.revealLabel}>Artists Lineup</span>
+                        <h3 className={styles.revealTitle}>Reveal Soon</h3>
+                        <p className={styles.revealDescription}>
+                            Stay tuned as we unveil an extraordinary lineup of talented artists
+                            who will take the stage at මේඝ වර්ෂා
+                        </p>
+                        <div className={styles.revealPulse}></div>
+                    </div>
                 </motion.div>
             </div>
         </section>

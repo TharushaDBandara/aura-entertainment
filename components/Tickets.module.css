@@ -1,6 +1,6 @@
 .tickets {
     padding: 8rem 0;
-    background: var(--color-bg-primary);
+    background: transparent;
     position: relative;
 }
 
@@ -56,77 +56,338 @@
     color: var(--color-text-secondary);
 }
 
+/* ========================================
+   WATER-THEMED TICKET GRID
+   ======================================== */
+
 .ticketsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     margin-bottom: 3rem;
 }
 
+/* Base Ticket Card */
 .ticketCard {
     position: relative;
     background: var(--color-bg-card);
     border-radius: 1.5rem;
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2.5rem 2rem;
+    border: 2px solid transparent;
     backdrop-filter: blur(10px);
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
-.ticketCard:hover {
-    border-color: var(--color-gold);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-}
-
-.ticketCard.popular {
-    border-color: var(--color-gold);
-    background: linear-gradient(145deg, rgba(124, 58, 237, 0.1) 0%, rgba(20, 10, 35, 0.9) 100%);
-    transform: scale(1.02);
-    margin-top: -10px;
-    /* Slight lift */
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
-}
-
-.ticketCard.popular:hover {
-    transform: scale(1.02) translateY(-8px);
-}
-
-.popularBadge {
+.ticketCard::before {
+    content: '';
     position: absolute;
-    top: -18px;
-    /* Move higher up */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.6rem 1.75rem;
-    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-    color: #000;
-    font-size: 0.8rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.5;
+}
+
+/* ========================================
+   MIST THEME - Balcony (Light, Airy, Foggy)
+   Colors: #E3F2FD (Background), #154360 (Text), #A9CCE3 (Border)
+   ======================================== */
+
+.ticketCard.mist {
+    --ticket-primary: #A9CCE3;
+    --ticket-accent: #E3F2FD;
+    --ticket-text: #154360;
+    border-color: rgba(169, 204, 227, 0.4);
+    background: linear-gradient(145deg,
+            rgba(227, 242, 253, 0.15) 0%,
+            rgba(169, 204, 227, 0.08) 50%,
+            rgba(15, 21, 30, 0.9) 100%);
+}
+
+.ticketCard.mist::before {
+    background: linear-gradient(90deg, transparent, #A9CCE3, transparent);
+}
+
+.ticketCard.mist::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(227, 242, 253, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.ticketCard.mist:hover {
+    border-color: #A9CCE3;
+    box-shadow:
+        0 20px 60px rgba(169, 204, 227, 0.2),
+        0 0 40px rgba(227, 242, 253, 0.1);
+}
+
+.ticketCard.mist .tierName {
+    color: #E3F2FD;
+}
+
+.ticketCard.mist .currency,
+.ticketCard.mist .checkIcon {
+    color: #A9CCE3;
+}
+
+.ticketCard.mist .amount {
+    background: linear-gradient(135deg, #A9CCE3 0%, #E3F2FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ticketCard.mist .earlyBird {
+    background: rgba(169, 204, 227, 0.15);
+    border: 1px solid rgba(169, 204, 227, 0.3);
+}
+
+.ticketCard.mist .earlyBirdPrice {
+    color: #A9CCE3;
+}
+
+.ticketCard.mist .buyBtn {
+    background: linear-gradient(135deg, #A9CCE3 0%, #E3F2FD 100%);
+    color: #154360;
+}
+
+.ticketCard.mist .buyBtn:hover {
+    box-shadow: 0 5px 30px rgba(169, 204, 227, 0.5);
+}
+
+/* ========================================
+   TIDE THEME - General ODC (Deep Ocean, Powerful)
+   Colors: #0B5345 (Teal BG), #48C9B0 (Turquoise Accent), #FFFFFF (Text)
+   ======================================== */
+
+.ticketCard.tide {
+    --ticket-primary: #0B5345;
+    --ticket-accent: #48C9B0;
+    border-color: rgba(72, 201, 176, 0.5);
+    background: linear-gradient(145deg,
+            rgba(11, 83, 69, 0.4) 0%,
+            rgba(72, 201, 176, 0.1) 40%,
+            rgba(15, 21, 30, 0.95) 100%);
+}
+
+.ticketCard.tide::before {
+    background: linear-gradient(90deg, transparent, #48C9B0, transparent);
+}
+
+.ticketCard.tide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 30% 80%, rgba(72, 201, 176, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 20%, rgba(11, 83, 69, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    animation: tideWave 8s ease-in-out infinite;
+}
+
+@keyframes tideWave {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.ticketCard.tide:hover {
+    border-color: #48C9B0;
+    box-shadow:
+        0 20px 60px rgba(72, 201, 176, 0.25),
+        0 0 50px rgba(11, 83, 69, 0.3);
+}
+
+.ticketCard.tide .tierName {
+    color: #48C9B0;
+}
+
+.ticketCard.tide .currency,
+.ticketCard.tide .checkIcon {
+    color: #48C9B0;
+}
+
+.ticketCard.tide .amount {
+    background: linear-gradient(135deg, #0B5345 0%, #48C9B0 50%, #76D7C4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ticketCard.tide .earlyBird {
+    background: rgba(72, 201, 176, 0.15);
+    border: 1px solid rgba(72, 201, 176, 0.3);
+}
+
+.ticketCard.tide .earlyBirdPrice {
+    color: #48C9B0;
+}
+
+.ticketCard.tide .buyBtn {
+    background: linear-gradient(135deg, #0B5345 0%, #48C9B0 100%);
+    color: #fff;
+}
+
+.ticketCard.tide .buyBtn:hover {
+    box-shadow: 0 5px 30px rgba(72, 201, 176, 0.5);
+}
+
+/* ========================================
+   MOON THEME - VIP (Spiritual, Silver, Glowing)
+   Colors: #2E4053 (Night Sky BG), #BDC3C7 (Silver), #A569BD (Spirit Purple Glow)
+   ======================================== */
+
+.ticketCard.moon {
+    --ticket-primary: #BDC3C7;
+    --ticket-accent: #A569BD;
+    border-color: rgba(189, 195, 199, 0.5);
+    background: linear-gradient(145deg,
+            rgba(46, 64, 83, 0.5) 0%,
+            rgba(165, 105, 189, 0.08) 40%,
+            rgba(189, 195, 199, 0.05) 60%,
+            rgba(15, 21, 30, 0.95) 100%);
+}
+
+.ticketCard.moon::before {
+    background: linear-gradient(90deg, transparent, #BDC3C7, #A569BD, #BDC3C7, transparent);
+    height: 5px;
+    opacity: 0.8;
+}
+
+.ticketCard.moon::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(189, 195, 199, 0.3) 0%, rgba(165, 105, 189, 0.1) 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    pointer-events: none;
+    animation: moonGlow 4s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+.ticketCard.moon:hover {
+    border-color: #BDC3C7;
+    box-shadow:
+        0 20px 60px rgba(189, 195, 199, 0.2),
+        0 0 60px rgba(165, 105, 189, 0.25),
+        0 0 100px rgba(165, 105, 189, 0.1);
+}
+
+.ticketCard.moon .tierName {
+    color: #BDC3C7;
+    text-shadow: 0 0 20px rgba(165, 105, 189, 0.5);
+}
+
+.ticketCard.moon .currency,
+.ticketCard.moon .checkIcon {
+    color: #BDC3C7;
+}
+
+.ticketCard.moon .amount {
+    background: linear-gradient(135deg, #2E4053 0%, #BDC3C7 40%, #A569BD 70%, #BDC3C7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.ticketCard.moon .earlyBird {
+    background: rgba(165, 105, 189, 0.15);
+    border: 1px solid rgba(165, 105, 189, 0.3);
+}
+
+.ticketCard.moon .earlyBirdPrice {
+    color: #A569BD;
+}
+
+.ticketCard.moon .buyBtn {
+    background: linear-gradient(135deg, #2E4053 0%, #BDC3C7 50%, #A569BD 100%);
+    color: #0a0e14;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border-radius: 50px;
-    box-shadow: 0 4px 25px rgba(212, 175, 55, 0.5);
-    white-space: nowrap;
-    z-index: 2;
+}
+
+.ticketCard.moon .buyBtn:hover {
+    box-shadow:
+        0 5px 30px rgba(189, 195, 199, 0.4),
+        0 0 40px rgba(165, 105, 189, 0.3);
+}
+
+/* ========================================
+   TICKET CARD ELEMENTS
+   ======================================== */
+
+.ticketIcon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px currentColor);
 }
 
 .ticketHeader {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    padding-top: 1.5rem;
-    /* Add space for badge */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tierName {
     font-family: var(--font-display);
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: #fff;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.tierSubtitle {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .price {
@@ -138,7 +399,6 @@
 
 .currency {
     font-size: 1.1rem;
-    color: rgba(212, 175, 55, 0.9);
     font-weight: 500;
 }
 
@@ -146,24 +406,50 @@
     font-family: var(--font-display);
     font-size: 2.75rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.earlyBird {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.earlyBirdLabel {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+}
+
+.earlyBirdPrice {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.vibeText {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    padding: 0 0.5rem;
 }
 
 .features {
     list-style: none;
-    flex: 1;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .features li {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem 0;
+    padding: 0.6rem 0;
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -174,16 +460,37 @@
 }
 
 .checkIcon {
-    color: #d4af37;
     font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.bestFor {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.bestForLabel {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.bestFor p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+    margin: 0;
 }
 
 .buyBtn {
     display: block;
     text-align: center;
     padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
-    color: #000;
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -191,13 +498,46 @@
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    margin-top: auto;
 }
 
 .buyBtn:hover {
-    box-shadow: 0 5px 30px rgba(212, 175, 55, 0.5);
     transform: translateY(-2px);
 }
+
+/* ========================================
+   POPULAR BADGE
+   ======================================== */
+
+.ticketCard.popular {
+    transform: scale(1.02);
+}
+
+.ticketCard.popular:hover {
+    transform: scale(1.02) translateY(-8px);
+}
+
+.popularBadge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(135deg, #0B5345 0%, #48C9B0 100%);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 50px;
+    box-shadow: 0 4px 25px rgba(72, 201, 176, 0.4);
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* ========================================
+   ACTIONS & MODAL
+   ======================================== */
 
 .actions {
     display: flex;
@@ -224,8 +564,8 @@
 }
 
 .seatMapBtn:hover {
-    background: rgba(212, 175, 55, 0.1);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    background: rgba(var(--color-gold-rgb), 0.08);
+    box-shadow: 0 0 20px rgba(var(--color-gold-rgb), 0.16);
     transform: translateY(-2px);
 }
 
@@ -247,7 +587,7 @@
 
 .modalContent {
     background: var(--color-bg-card);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(var(--color-gold-rgb), 0.25);
     border-radius: 1.5rem;
     padding: 2rem;
     max-width: 1000px;
@@ -302,8 +642,8 @@
     justify-content: center;
     gap: 1rem;
     padding: 1.5rem 2rem;
-    background: rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: rgba(72, 201, 176, 0.08);
+    border: 1px solid rgba(72, 201, 176, 0.2);
     border-radius: 1rem;
     text-align: center;
 }
@@ -318,13 +658,21 @@
 }
 
 .ticketNotice strong {
-    color: #d4af37;
+    color: #48C9B0;
 }
 
-/* Responsive */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 1100px) {
     .ticketsGrid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .ticketCard {
+        padding: 2rem 1.5rem;
     }
 
     .ticketCard.popular {
@@ -336,15 +684,43 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .ticketsGrid {
         grid-template-columns: 1fr;
-        max-width: 400px;
+        max-width: 450px;
         margin-left: auto;
         margin-right: auto;
     }
 
+    .ticketCard {
+        padding: 2.5rem 2rem;
+    }
+}
+
+@media (max-width: 600px) {
     .tickets {
         padding: 5rem 0;
+    }
+
+    .ticketsGrid {
+        max-width: 100%;
+        gap: 2rem;
+    }
+
+    .ticketCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .tierName {
+        font-size: 1.75rem;
+    }
+
+    .amount {
+        font-size: 2.25rem;
+    }
+
+    .ticketNotice {
+        flex-direction: column;
+        text-align: center;
     }
 }

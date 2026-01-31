@@ -9,37 +9,56 @@ import styles from './Tickets.module.css';
 const tickets = [
     {
         id: 1,
-        tier: 'Balcony',
-        price: '3,000',
-        features: ['Balcony seating', 'Standard view', 'General access'],
+        tier: 'Mist',
+        subtitle: 'Balcony',
+        price: '2,500',
+        earlyBird: '2,000',
+        theme: 'mist',
+        icon: '🌫️',
+        vibe: 'Light, airy, and high up. Like the fog in the Foggy Swamp or the mist at the poles.',
+        features: [
+            'Balcony seating',
+            'Elevated panoramic view',
+            'Ethereal atmosphere',
+            'General access'
+        ],
+        bestFor: 'Those who want to float above it all and take in the full visual experience.',
         popular: false,
     },
     {
         id: 2,
-        tier: 'Silver',
-        price: '5,000',
-        features: ['Ground floor seating', 'Good view', 'General access'],
-        popular: false,
-    },
-    {
-        id: 3,
-        tier: 'Gold',
-        price: '7,500',
-        features: ['Ground floor seating', 'Better view', 'General access'],
-        popular: false,
-    },
-    {
-        id: 4,
-        tier: 'Platinum',
-        price: '10,000',
-        features: ['Premium seating', 'Excellent view', 'Priority entry'],
+        tier: 'Tide',
+        subtitle: 'General ODC',
+        price: '3,500',
+        earlyBird: '3,000',
+        theme: 'tide',
+        icon: '🌊',
+        vibe: 'The relentless power of the ocean. This is the main body of water—deep, strong, and moving.',
+        features: [
+            'Ground floor standing',
+            'Heart of the crowd',
+            'Feel the wave of energy',
+            'Maximum immersion'
+        ],
+        bestFor: 'Those who want to ride the wave and be swept up in the crowd\'s energy.',
         popular: true,
     },
     {
-        id: 5,
-        tier: 'VIP',
-        price: '12,000',
-        features: ['Closest seating', 'Best view', 'Priority entry'],
+        id: 3,
+        tier: 'Moon',
+        subtitle: 'VIP - Stage Front',
+        price: '5,000',
+        earlyBird: '4,000',
+        theme: 'moon',
+        icon: '🌙',
+        vibe: 'The Moon is the original Waterbender. Spiritual, glowing, silver, and elite.',
+        features: [
+            'Front row access',
+            'Up-close artist view',
+            'Spirit-tier experience',
+            'Priority entry'
+        ],
+        bestFor: 'Those seeking the most spiritual, exclusive, and premium experience.',
         popular: false,
     },
 ];
@@ -70,7 +89,7 @@ export default function Tickets() {
 
     return (
         <section id="tickets" className={styles.tickets} ref={ref}>
-            <div className={styles.container}>
+            <div className={styles.container} suppressHydrationWarning>
                 <motion.div
                     className={styles.header}
                     initial={{ opacity: 0, y: 30 }}
@@ -99,20 +118,29 @@ export default function Tickets() {
                     {tickets.map((ticket) => (
                         <motion.div
                             key={ticket.id}
-                            className={`${styles.ticketCard} ${ticket.popular ? styles.popular : ''}`}
+                            className={`${styles.ticketCard} ${styles[ticket.theme]} ${ticket.popular ? styles.popular : ''}`}
                             variants={cardVariants}
                             whileHover={{ y: -8 }}
                         >
                             {ticket.popular && (
                                 <div className={styles.popularBadge}>Most Popular</div>
                             )}
+                            <div className={styles.ticketIcon}>{ticket.icon}</div>
                             <div className={styles.ticketHeader}>
                                 <h3 className={styles.tierName}>{ticket.tier}</h3>
-                                <div className={styles.price}>
-                                    <span className={styles.currency}>Rs.</span>
-                                    <span className={styles.amount}>{ticket.price}</span>
+                                <span className={styles.tierSubtitle}>{ticket.subtitle}</span>
+                                <div className={styles.priceContainer}>
+                                    <div className={styles.price}>
+                                        <span className={styles.currency}>Rs.</span>
+                                        <span className={styles.amount}>{ticket.price}</span>
+                                    </div>
+                                    <div className={styles.earlyBird}>
+                                        <span className={styles.earlyBirdLabel}>Early Bird</span>
+                                        <span className={styles.earlyBirdPrice}>Rs. {ticket.earlyBird}</span>
+                                    </div>
                                 </div>
                             </div>
+                            <p className={styles.vibeText}>{ticket.vibe}</p>
                             <ul className={styles.features}>
                                 {ticket.features.map((feature, index) => (
                                     <li key={index}>
@@ -121,8 +149,12 @@ export default function Tickets() {
                                     </li>
                                 ))}
                             </ul>
+                            <div className={styles.bestFor}>
+                                <span className={styles.bestForLabel}>Best For:</span>
+                                <p>{ticket.bestFor}</p>
+                            </div>
                             <a href="#contact" className={styles.buyBtn}>
-                                Book Now
+                                Join Waitlist
                             </a>
                         </motion.div>
                     ))}
@@ -134,7 +166,7 @@ export default function Tickets() {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                    <button 
+                    <button
                         className={styles.seatMapBtn}
                         onClick={() => setShowSeatMap(true)}
                     >
@@ -150,27 +182,27 @@ export default function Tickets() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                 >
                     <span className={styles.noticeIcon}>&#127903;</span>
-                    <p>Online tickets available from <strong>31st January 2026</strong></p>
+                    <p>Online ticket sales date will be announced soon. <strong>Stay tuned!</strong></p>
                 </motion.div>
             </div>
 
             <AnimatePresence>
                 {showSeatMap && (
-                    <motion.div 
+                    <motion.div
                         className={styles.modalOverlay}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setShowSeatMap(false)}
                     >
-                        <motion.div 
+                        <motion.div
                             className={styles.modalContent}
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button 
+                            <button
                                 className={styles.closeBtn}
                                 onClick={() => setShowSeatMap(false)}
                             >

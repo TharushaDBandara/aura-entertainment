@@ -5,7 +5,7 @@ import styles from './EventDetails.module.css';
 
 export default function EventDetails({ showAudience = false }) {
     return (
-        <motion.div 
+        <motion.div
             className={styles.eventDetails}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -14,19 +14,19 @@ export default function EventDetails({ showAudience = false }) {
         >
             <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Date</span>
-                <span className={styles.detailValue}>7th March 2026</span>
+                <span className={styles.detailValue}>Reveal Soon</span>
             </div>
             <div className={styles.detailDivider}></div>
             <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Time</span>
-                <span className={styles.detailValue}>7:00 PM Onwards</span>
+                <span className={styles.detailValue}>Reveal Soon</span>
             </div>
             <div className={styles.detailDivider}></div>
             <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>Venue</span>
-                <span className={styles.detailValue}>Musaeus College Auditorium</span>
+                <span className={styles.detailValue}>Reveal Soon</span>
             </div>
-            
+
             {showAudience && (
                 <>
                     <div className={styles.detailDivider}></div>

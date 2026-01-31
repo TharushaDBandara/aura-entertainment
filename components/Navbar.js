@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -35,10 +36,16 @@ export default function Navbar() {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div className={styles.container}>
+            <div className={styles.container} suppressHydrationWarning>
                 <a href={isHome ? "#home" : "/"} className={styles.logo}>
-                    <span className={styles.logoText}>AURA</span>
-                    <span className={styles.logoSub}>Entertainment</span>
+                    <Image
+                        src="/aura-logo.png"
+                        alt="AURA Entertainment"
+                        width={120}
+                        height={40}
+                        style={{ objectFit: 'contain' }}
+                        priority
+                    />
                 </a>
 
                 <ul className={`${styles.navLinks} ${mobileMenuOpen ? styles.open : ''}`}>

@@ -1,7 +1,7 @@
 .footer {
     padding: 4rem 0 2rem;
-    background: linear-gradient(180deg, #120a1e 0%, #0a0612 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(5, 8, 16, 0.85);
+    border-top: 1px solid rgba(0, 206, 209, 0.1);
 }
 
 .container {
@@ -29,11 +29,15 @@
     margin-bottom: 1rem;
 }
 
+.logo img {
+    filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+}
+
 .logoText {
     font-family: var(--font-display);
     font-size: 2rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -44,12 +48,12 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-text-muted);
     margin-top: -2px;
 }
 
 .tagline {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -74,14 +78,14 @@
 
 .linkColumn a,
 .linkColumn span {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-text-muted);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
 .linkColumn a:hover {
-    color: #d4af37;
+    color: var(--color-gold);
 }
 
 .social h4 {
@@ -110,9 +114,9 @@
 }
 
 .socialIcon:hover {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: rgba(212, 175, 55, 0.3);
-    color: #d4af37;
+    background: rgba(var(--color-gold-rgb), 0.08);
+    border-color: rgba(var(--color-gold-rgb), 0.18);
+    color: var(--color-gold);
     transform: translateY(-3px);
 }
 
@@ -136,7 +140,7 @@
 }
 
 .eventName {
-    color: #d4af37;
+    color: var(--color-gold);
     font-weight: 500;
 }
 

@@ -1,0 +1,84 @@
+/* Rain Overlay Styles */
+.rainOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+/* Individual Raindrop */
+.raindrop {
+    position: absolute;
+    top: -50px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(0, 206, 209, 0.4) 50%,
+            rgba(135, 206, 235, 0.6) 100%);
+    border-radius: 0 0 50% 50%;
+    animation: rainFall linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes rainFall {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.6;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* Mist Layers */
+.mistLayer1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(5, 8, 16, 0.3) 50%,
+            rgba(0, 206, 209, 0.05) 100%);
+    animation: mistFloat 8s ease-in-out infinite;
+}
+
+.mistLayer2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(30, 144, 255, 0.03) 100%);
+    animation: mistFloat 12s ease-in-out infinite reverse;
+}
+
+@keyframes mistFloat {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateY(-10px);
+    }
+}

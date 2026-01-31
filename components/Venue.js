@@ -30,7 +30,7 @@ export default function Venue() {
 
     return (
         <section id="venue" className={styles.venue} ref={ref}>
-            <div className={styles.container}>
+            <div className={styles.container} suppressHydrationWarning>
                 <motion.div
                     className={styles.content}
                     variants={containerVariants}
@@ -47,31 +47,22 @@ export default function Venue() {
                         Experience the <span className={styles.goldText}>Grandeur</span>
                     </motion.h2>
 
-                    <motion.div className={styles.detailsStrip} variants={itemVariants}>
-                        <div className={styles.stripItem}>
-                            <span className={styles.stripLabel}>Date</span>
-                            <span className={styles.stripValue}>7th March 2026</span>
-                        </div>
-                        <div className={styles.divider}></div>
-                        <div className={styles.stripItem}>
-                            <span className={styles.stripLabel}>Time</span>
-                            <span className={styles.stripValue}>7:00 PM Onwards</span>
-                        </div>
-                        <div className={styles.divider}></div>
-                        <div className={styles.stripItem}>
-                            <span className={styles.stripLabel}>Venue</span>
-                            <span className={styles.stripValue}>Musaeus College Auditorium</span>
-                        </div>
-                    </motion.div>
+                    <motion.p className={styles.venueDescription} variants={itemVariants}>
+                        The venue details will be announced soon. Stay tuned for an extraordinary location
+                        that will set the perfect stage for මේඝ වර්ෂා.
+                    </motion.p>
 
-                    <motion.div className={styles.mapContainer} variants={itemVariants}>
-                        <iframe 
-                            src="https://maps.google.com/maps?q=Musaeus%20College%20Auditorium&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                            className={styles.mapFrame}
-                            allowFullScreen="" 
-                            loading="lazy" 
-                            referrerPolicy="no-referrer-when-downgrade"
-                        ></iframe>
+                    {/* Venue Reveal Soon Placeholder */}
+                    <motion.div className={styles.venueReveal} variants={itemVariants}>
+                        <div className={styles.venueIconWrapper}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <div className={styles.venueGlow}></div>
+                        </div>
+                        <span className={styles.venueLabel}>Venue</span>
+                        <span className={styles.venueValue}>Reveal Soon</span>
                     </motion.div>
                 </motion.div>
             </div>

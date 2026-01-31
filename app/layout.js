@@ -14,12 +14,12 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Viragaya | AURA Entertainment',
-  description: 'Experience an evening of musical excellence with Amarasiri Peries, Amal Perera, and Kasun Kalhara at Musaeus College Auditorium on March 7th, 2026.',
-  keywords: 'Viragaya, AURA Entertainment, Sri Lankan Concert, Amarasiri Peries, Amal Perera, Kasun Kalhara, Musaeus College, Colombo Concert',
+  title: 'Megha Varsha | AURA Entertainment - The Cycle Begins: Water',
+  description: 'Experience an electrifying live concert featuring IMAN, UVINDU, MIHIRAN, DHYAN, and DILU. Enter the Elemental Chamber where Water awakens.',
+  keywords: 'Megha Varsha, මේඝ වර්ෂා, AURA Entertainment, Sri Lankan Concert, IMAN, UVINDU, MIHIRAN, DHYAN, DILU, Sri Palee College, Live Concert, Water Element',
   openGraph: {
-    title: 'Viragaya | An Evening of Musical Excellence',
-    description: 'Join us for the most sophisticated musical event of the year featuring three legendary Sri Lankan artists.',
+    title: 'Megha Varsha - The Cycle Begins: Water | AURA Entertainment',
+    description: 'Enter the Elemental Chamber. The Water element awakens for the most electrifying musical event of the year.',
     type: 'website',
     locale: 'en_US',
   },
@@ -28,30 +28,38 @@ export const metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'MusicEvent',
-  name: 'Viragaya',
-  startDate: '2026-03-07T19:00',
+  name: 'Megha Varsha - Live in Concert',
+  startDate: '2026-03-20T19:00',
   location: {
     '@type': 'Place',
-    name: 'Musaeus College Auditorium',
+    name: 'Sri Palee College Auditorium',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Colombo',
+      addressLocality: 'Horana',
       addressCountry: 'LK',
     },
   },
-  description: 'Experience an evening of musical excellence with Amarasiri Peries, Amal Perera, and Kasun Kalhara.',
+  description: 'Experience an electrifying live concert featuring IMAN, UVINDU, MIHIRAN, DHYAN, and DILU.',
   performer: [
     {
       '@type': 'Person',
-      name: 'Amarasiri Peiris',
+      name: 'IMAN',
     },
     {
       '@type': 'Person',
-      name: 'Amal Perera',
+      name: 'UVINDU',
     },
     {
       '@type': 'Person',
-      name: 'Kasun Kalhara',
+      name: 'MIHIRAN',
+    },
+    {
+      '@type': 'Person',
+      name: 'DHYAN',
+    },
+    {
+      '@type': 'Person',
+      name: 'DILU',
     },
   ],
   organizer: {
@@ -60,7 +68,7 @@ const jsonLd = {
   },
   offers: {
     '@type': 'Offer',
-    price: '3500',
+    price: '2500',
     priceCurrency: 'LKR',
     availability: 'https://schema.org/InStock',
   },
@@ -79,3 +87,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
