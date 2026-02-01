@@ -80,7 +80,7 @@ export default function Hero() {
                     >
                         <div className={styles.logoWrapper}>
                             <Image
-                                src="/megha-varsha-logo.png"
+                                src="/megha-varsha-logo.svg"
                                 alt="මේඝ වර්ෂා - Live in Concert"
                                 width={500}
                                 height={500}

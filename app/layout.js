@@ -23,6 +23,9 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
   },
+  icons: {
+    icon: '/megha-varsha-logo.svg',
+  },
 };
 
 const jsonLd = {

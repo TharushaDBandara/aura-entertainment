@@ -1,0 +1,256 @@
+.journeyContainer {
+    width: 100%;
+    margin-bottom: 5rem;
+    position: relative;
+    padding: 2rem;
+    background: rgba(3, 5, 12, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.journeyContainer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(0, 206, 209, 0.2), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.label {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    background: rgba(0, 206, 209, 0.05);
+    border: 1px solid rgba(0, 206, 209, 0.2);
+    color: #00CED1;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+.cardsContainer {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    aspect-ratio: 4/5;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Active Card Styling (Water) */
+.card.active {
+    background: radial-gradient(circle at center, rgba(0, 206, 209, 0.1), transparent 70%);
+    border-color: rgba(0, 206, 209, 0.3);
+    box-shadow: 0 0 30px rgba(0, 206, 209, 0.1);
+}
+
+.card.active .iconWrapper {
+    background: linear-gradient(135deg, rgba(0, 206, 209, 0.2), rgba(0, 255, 255, 0.1));
+    box-shadow: 0 0 20px rgba(0, 206, 209, 0.4), inset 0 0 10px rgba(0, 206, 209, 0.2);
+    border-color: rgba(0, 206, 209, 0.5);
+    animation: pulseGlow 3s infinite;
+}
+
+.card.active .cardTitle {
+    color: #00CED1;
+    text-shadow: 0 0 10px rgba(0, 206, 209, 0.3);
+}
+
+/* Locked Card Styling */
+.card.locked {
+    opacity: 0.6;
+    background: #050810;
+}
+
+.iconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card.locked .iconWrapper {
+    background: #0A0F1C;
+    /* Darker background for locked */
+    color: #555;
+    /* Dimmed icon color */
+    border-color: #222;
+}
+
+.cardTitle {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0;
+}
+
+.statusText {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.badge {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.activeBadge {
+    background: rgba(0, 206, 209, 0.2);
+    color: #00CED1;
+    border: 1px solid rgba(0, 206, 209, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.activeDot {
+    width: 6px;
+    height: 6px;
+    background: #00CED1;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #00CED1;
+}
+
+.lockedBadge {
+    background: rgba(255, 255, 255, 0.03);
+    color: #555;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.lockIcon {
+    width: 10px;
+    height: 10px;
+    opacity: 0.7;
+}
+
+/* Progress Bar */
+.progressWrapper {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progressBar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progressFill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    /* 1 of 4 elements */
+    background: linear-gradient(90deg, #00CED1, #1E90FF);
+    box-shadow: 0 0 10px rgba(0, 206, 209, 0.5);
+    border-radius: 2px;
+}
+
+.progressText {
+    font-size: 0.8rem;
+    color: #00CED1;
+    letter-spacing: 0.05em;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 206, 209, 0.4), inset 0 0 10px rgba(0, 206, 209, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 35px rgba(0, 206, 209, 0.6), inset 0 0 15px rgba(0, 206, 209, 0.3);
+    }
+}
+
+@media (max-width: 968px) {
+    .cardsContainer {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+        /* Hide scrollbar */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .cardsContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card {
+        min-width: 220px;
+        flex: 0 0 auto;
+    }
+
+    .journeyContainer {
+        padding: 1.5rem 0.5rem;
+    }
+}

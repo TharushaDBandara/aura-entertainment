@@ -7,8 +7,9 @@ import dynamic from 'next/dynamic';
 import styles from './About.module.css';
 
 // Dynamically import 3D model to avoid SSR issues
-const About3DModel = dynamic(
-    () => import('./About3DModel'),
+// Dynamically import ElementalJourney to avoid hydration mismatches
+const ElementalJourney = dynamic(
+    () => import('./ElementalJourney'),
     { ssr: false, loading: () => <div className={styles.modelPlaceholder} /> }
 );
 
@@ -54,20 +55,19 @@ export default function About() {
                         A Night of <span className={styles.goldText}>Musical Excellence</span>
                     </motion.h2>
 
-                    {/* 3D Model - Embedded as Content */}
+                    {/* New Elemental Journey Section */}
                     <motion.div variants={itemVariants}>
-                        <About3DModel />
+                        <ElementalJourney />
                     </motion.div>
 
                     <motion.div className={styles.aboutGrid} variants={itemVariants}>
+                        {/* The Architects -> Earth/Structure (Cube) */}
                         <div className={styles.aboutCard}>
                             <div className={styles.cardIcon}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M21 4H3" />
-                                    <path d="M18 8H6" />
-                                    <path d="M19 12H9" />
-                                    <path d="M16 16H8" />
-                                    <path d="M11 20H9" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
                                 </svg>
                             </div>
                             <h3>The Architects</h3>
@@ -78,10 +78,11 @@ export default function About() {
                             </p>
                         </div>
 
+                        {/* Book One: Water -> Water (Drop) */}
                         <div className={styles.aboutCard}>
                             <div className={styles.cardIcon}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-1 2.5-2.5 4-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-1 2.5-2.5 4-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path>
                                 </svg>
                             </div>
                             <h3>Book One: Water</h3>
@@ -92,10 +93,11 @@ export default function About() {
                             </p>
                         </div>
 
+                        {/* The Immersion -> Air (Swirl/Wind) */}
                         <div className={styles.aboutCard}>
                             <div className={styles.cardIcon}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path>
                                 </svg>
                             </div>
                             <h3>The Immersion</h3>
