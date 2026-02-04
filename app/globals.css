@@ -43,8 +43,8 @@
   --color-purple-rgb: 30, 144, 255;
 
   --color-text-primary: #e8eef5;
-  --color-text-secondary: rgba(232, 238, 245, 0.82);
-  --color-text-muted: rgba(232, 238, 245, 0.55);
+  --color-text-secondary: rgba(232, 238, 245, 0.88);
+  --color-text-muted: rgba(232, 238, 245, 0.65);
   --color-text-on-accent: #050810;
 
   /* Gradients - Elemental Water Theme */

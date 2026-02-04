@@ -65,6 +65,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 3rem;
+    padding-top: 1.5rem;
+    /* Extra space for the Most Popular badge */
 }
 
 /* Base Ticket Card */
@@ -431,13 +433,14 @@
 }
 
 .vibeText {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
     text-align: center;
     margin-bottom: 1.5rem;
     font-style: italic;
     padding: 0 0.5rem;
+    font-weight: 400;
 }
 
 .features {
@@ -450,8 +453,9 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.6rem 0;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.92rem;
+    font-weight: 400;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -481,10 +485,11 @@
 }
 
 .bestFor p {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.5;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
     margin: 0;
+    font-weight: 400;
 }
 
 .buyBtn {
@@ -511,6 +516,8 @@
 
 .ticketCard.popular {
     transform: scale(1.02);
+    overflow: visible;
+    /* Allow badge to show above card */
 }
 
 .ticketCard.popular:hover {

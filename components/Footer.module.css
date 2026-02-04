@@ -21,16 +21,19 @@
 
 .brand {
     max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .logo {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     margin-bottom: 1rem;
 }
 
 .logo img {
-    filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+    filter: drop-shadow(0 0 10px rgba(0, 206, 209, 0.3));
 }
 
 .logoText {
@@ -136,12 +139,24 @@
 .event {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .eventName {
     color: var(--color-gold);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.eventSub {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+}
+
+.eventDetail {
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 /* Responsive */
@@ -154,6 +169,11 @@
     .brand {
         max-width: none;
         text-align: center;
+        align-items: center;
+    }
+
+    .logo {
+        justify-content: center;
     }
 
     .links {

@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import SeatingChart from './SeatingChart';
+// import SeatingChart from './SeatingChart'; // Hidden temporarily
 import styles from './Tickets.module.css';
 
 const tickets = [
@@ -66,7 +66,7 @@ const tickets = [
 export default function Tickets() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [showSeatMap, setShowSeatMap] = useState(false);
+    // const [showSeatMap, setShowSeatMap] = useState(false); // Hidden temporarily
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -160,6 +160,7 @@ export default function Tickets() {
                     ))}
                 </motion.div>
 
+                {/* Seating Plan Button - Hidden temporarily
                 <motion.div
                     className={styles.actions}
                     initial={{ opacity: 0, y: 20 }}
@@ -174,6 +175,7 @@ export default function Tickets() {
                         View Seating Plan
                     </button>
                 </motion.div>
+                */}
 
                 <motion.div
                     className={styles.ticketNotice}
@@ -186,6 +188,7 @@ export default function Tickets() {
                 </motion.div>
             </div>
 
+            {/* Seating Plan Modal - Hidden temporarily
             <AnimatePresence>
                 {showSeatMap && (
                     <motion.div
@@ -219,6 +222,7 @@ export default function Tickets() {
                     </motion.div>
                 )}
             </AnimatePresence>
+            */}
         </section>
     );
 }

@@ -60,7 +60,8 @@
     color: var(--color-text-secondary);
     max-width: 600px;
     margin: 0 auto 3rem;
-    line-height: 1.7;
+    line-height: 1.75;
+    font-weight: 400;
 }
 
 /* Venue Reveal Soon Card */

@@ -11,11 +11,11 @@ const coordinators = [
         role: 'Event Coordinator',
     },
     {
-        name: 'Nimesh Dissanayake',
+        name: 'Boditha Weerasinghe',
         role: 'Event Coordinator',
     },
     {
-        name: 'Anuka Milroy',
+        name: 'Nimesh Dissanayake',
         role: 'Event Coordinator',
     },
 ];
@@ -73,17 +73,17 @@ export default function Contact() {
                         <div className={styles.infoCard}>
                             <h3>Quick Contact</h3>
                             <div className={styles.contactMethods}>
-                                <a href="mailto:info@auraentertainment.lk" className={styles.contactMethod}>
+                                <a href="mailto:meghawarshalive@gmail.com" className={styles.contactMethod}>
                                     <span className={styles.methodIcon}>&#9993;</span>
-                                    <span>info@auraentertainment.lk</span>
+                                    <span>meghawarshalive@gmail.com</span>
                                 </a>
-                                <a href="tel:+94771234567" className={styles.contactMethod}>
+                                <a href="tel:+94715362681" className={styles.contactMethod}>
                                     <span className={styles.methodIcon}>&#9742;</span>
-                                    <span>+94 77 123 4567</span>
+                                    <span>071 536 2681 (Boditha)</span>
                                 </a>
                                 <div className={styles.contactMethod}>
                                     <span className={styles.methodIcon}>&#9903;</span>
-                                    <span>Colombo, Sri Lanka</span>
+                                    <span>Horana, Sri Lanka</span>
                                 </div>
                             </div>
                         </div>

@@ -160,11 +160,11 @@
 
 .aboutCard p {
     color: var(--color-text-secondary);
-    line-height: 1.7;
-    font-size: 0.95rem;
+    line-height: 1.75;
+    font-size: 1rem;
     position: relative;
     z-index: 1;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.02em;
 }
 
